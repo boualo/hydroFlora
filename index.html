@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroFlora — Sustainable Growth, Infinite Greenery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/landing.css" />
+</head>
+
+<body data-page="landing">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="topbar glass">
+    <div class="brand">
+      <img class="app-logo" src="img/logo2.png" alt="HydroFlora logo" />
+      <div>
+        <div class="brand-name">HydroFlora</div>
+        <div class="brand-tag">Smart rooftop hydroponics</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav-link" href="#solution">Solution</a>
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#dash">Live Demo</a>
+      <a class="nav-link" href="pages/auth/login.html">Login</a>
+      <a class="btn btn-primary" href="pages/user/dashboard.html">Open Dashboard</a>
+    </nav>
+
+    <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+      <span class="icon">☾</span>
+    </button>
+  </header>
+
+  <main class="container hero">
+    <section class="hero-left">
+      <div class="pill">
+          <span class="dot dot-good"></span>
+          Smart Rooftop Farming · Water Recycling · Renewable Energy
+        </div>
+
+        <h1 class="hero-title">
+        Transforming urban rooftops into intelligent,
+        self-sustaining hydroponic farms.
+        </h1>
+
+        <p>
+        HydroFlora combines IoT sensors, AI analytics, and renewable energy
+        to create autonomous rooftop agriculture systems that recycle water,
+        optimize plant growth, and protect crops from urban pollution.
+        </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="pages/user/dashboard.html">Launch Demo</a>
+        <a class="btn btn-ghost btn-lg" href="#solution">See How It Works</a>
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric glass">
+          <div class="metric-kpi">-70%</div>
+          <div class="metric-label">Water usage vs. traditional</div>
+        </div>
+        <div class="metric glass">
+          <div class="metric-kpi">24/7</div>
+          <div class="metric-label">Autonomous monitoring</div>
+        </div>
+        <div class="metric glass">
+          <div class="metric-kpi">Solar+Wind</div>
+          <div class="metric-label">Hybrid renewable unit</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-right">
+      <div class="hero-card glass tilt" id="tiltCard">
+        <div class="hero-card-top">
+          <div class="chip" id="model_response">
+            <span class="chip-ic text-bold" >⚡</span>
+            Hybrid Power · Battery 82%
+          </div>
+          <div class="chip">
+            <span class="chip-ic">💧</span>
+            Closed-Loop Water · OK
+          </div>
+          <div class="chip">
+            <span class="chip-ic">🫁</span>
+            Oxygenation · Waterfall Mode
+          </div>
+        </div>
+
+        <div class="hero-gauge">
+          <div class="gauge-title">City Air Quality Shield</div>
+          <div class="gauge-ring" style="--p:72;">
+            <div class="gauge-center">
+              <div class="gauge-val" id="co2Val">425</div>
+              <div class="gauge-unit">ppm CO₂</div>
+              <div class="gauge-state" id="co2State">Shield: Active</div>
+            </div>
+          </div>
+          <div class="gauge-hint">Carbon sensor detects car exhaust and triggers greenhouse cover.</div>
+        </div>
+
+        <div class="hero-mini">
+          <div class="mini glass">
+            <div class="mini-label">pH</div>
+            <div class="mini-val" id="phVal">6.1</div>
+          </div>
+          <div class="mini glass">
+            <div class="mini-label">EC</div>
+            <div class="mini-val" id="ecVal">1.9</div>
+          </div>
+          <div class="mini glass">
+            <div class="mini-label">NPK</div>
+            <div class="mini-val" id="npkVal">OK</div>
+          </div>
+          <div class="mini glass">
+            <div class="mini-label">Water</div>
+            <div class="mini-val" id="wVal">68%</div>
+          </div>
+        </div>
+
+        <div class="hero-card-actions">
+          <a class="btn btn-soft" href="pages/user/monitoring.html">Open Monitoring</a>
+          <a class="btn btn-ghost" href="pages/admin/rooftops.html">Admin View</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="solution" class="container section">
+    <div class="section-head">
+      <h2>Solution in one glance</h2>
+      <p>Soilless hydroponics + circular water + renewable energy + CO₂ shield — controlled from one UI.</p>
+    </div>
+
+    <div class="grid-3">
+      <article class="card glass">
+        <div class="card-ic">🌿</div>
+        <h3>Soilless hydroponics</h3>
+        <p>Bypass soil degradation and salinity by growing in controlled nutrient solution with stable pH/EC.</p>
+      </article>
+      <article class="card glass">
+        <div class="card-ic">💧</div>
+        <h3>Closed-loop water cycle</h3>
+        <p>Filtering + recycling reduces consumption. Reservoir overflow creates a waterfall oxygenation effect.</p>
+      </article>
+      <article class="card glass">
+        <div class="card-ic">🌬️</div>
+        <h3>CO₂ pollution shield</h3>
+        <p>Carbon sensor detects exhaust peaks and automatically deploys greenhouse cover to protect crops.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="features" class="container section">
+    <div class="section-head">
+      <h2>Features you can demo right now</h2>
+      <p>Everything below is simulated in JavaScript, built like a real product UI.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card glass">
+        <h3>Real-time monitoring</h3>
+        <p>pH, EC, NPK status, water level, temperature, humidity, CO₂, energy flow and device health.</p>
+        <div class="tag-row">
+          <span class="tag">Live Cards</span>
+          <span class="tag">Charts</span>
+          <span class="tag">Alerts</span>
+          <span class="tag">Recommendations</span>
+        </div>
+      </div>
+      <div class="card glass">
+        <h3>Circular economy partnership</h3>
+        <p>Rooftop owners receive automated monthly payments and transparent impact reporting.</p>
+        <div class="tag-row">
+          <span class="tag">Payments</span>
+          <span class="tag">Contracts</span>
+          <span class="tag">Impact</span>
+          <span class="tag">Multi-Sites</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dash" class="container section">
+    <div class="section-head">
+      <h2>Explore the app areas</h2>
+      <p>Choose your role: User, Admin, Rooftop Owner, or Installer.</p>
+    </div>
+
+    <div class="role-grid">
+      <a class="role glass" href="pages/user/dashboard.html">
+        <div class="role-ic">👤</div>
+        <div class="role-title">User Dashboard</div>
+        <div class="role-sub">Live sensors + alerts + harvest planning</div>
+      </a>
+      <a class="role glass" href="pages/admin/rooftops.html">
+        <div class="role-ic">🛰️</div>
+        <div class="role-title">Admin NOC</div>
+        <div class="role-sub">Multi-rooftop supervision + tickets</div>
+      </a>
+      <a class="role glass" href="pages/owner/payments.html">
+        <div class="role-ic">🏢</div>
+        <div class="role-title">Owner Space</div>
+        <div class="role-sub">Payments + impact + rooftop access schedule</div>
+      </a>
+      <a class="role glass" href="pages/installer/setup-wizard.html">
+        <div class="role-ic">🧰</div>
+        <div class="role-title">Installer Mode</div>
+        <div class="role-sub">Setup wizard + calibration + diagnostics</div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="container footer">
+    <div class="footer-left">
+      <div class="brand small">
+        
+          
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+  <div id="toastHost" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="assets/js/app.js"></script>
+
+  <script src="assets/js/ui/cursorFX.js"></script>
+  <script src="assets/js/ui/animations.js"></script>
+  <script>
+    // Landing demo numbers (simple + wow)
+    const co2Val = document.getElementById("co2Val");
+    const co2State = document.getElementById("co2State");
+    const phVal = document.getElementById("phVal");
+    const ecVal = document.getElementById("ecVal");
+    const wVal = document.getElementById("wVal");
+
+    let t = 0;
+    setInterval(() => {
+      t++;
+      const co2 = Math.round(420 + 15*Math.sin(t/12) + 8*Math.sin(t/5));
+      const ph  = (6.0 + 0.15*Math.sin(t/10)).toFixed(1);
+      const ec  = (1.8 + 0.2*Math.sin(t/14)).toFixed(1);
+      const w   = Math.round(62 + 10*Math.sin(t/18));
+
+      co2Val.textContent = co2;
+      phVal.textContent = ph;
+      ecVal.textContent = ec;
+      wVal.textContent = `${w}%`;
+
+      const shield = co2 > 430;
+      co2State.textContent = shield ? "Shield: Active" : "Shield: Standby";
+      co2State.classList.toggle("bad", shield);
+    }, 900);
+    async function predictWater() {
+
+    const data = {
+        pH: parseFloat(phVal.textContent),
+        TDS: parseFloat(ecVal.textContent),
+        water_level: parseFloat(wVal.textContent) / 100,
+        DHT_temp: 2000,
+        DHT_humidity: 40,
+        water_temp: 1300
+    };
+
+    const response = await fetch("http://127.0.0.1:8000/predict", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    console.log("Prediction:", result);
+
+    if(result.water_change_needed == 1){
+        document.getElementById("model_response").innerText = "Water change needed!";
+        document.getElementById("model_response").style.color = "red";
+    }
+    else{
+        document.getElementById("model_response").innerText = "Water conditions are good.";
+        document.getElementById("model_response").style.color = "green";
+    }
+
+}
+setInterval(predictWater, 5000);
+  </script>
+</body>
+</html>

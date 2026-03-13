@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroFlora — Admin NOC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/pages/admin.css" />
+</head>
+
+<body data-page="admin">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="topbar glass">
+    <a class="brand" href="../../index.html">
+      <div class="logo-mark">HF</div>
+      <div class="brand-txt">
+        <div class="brand-name">HydroFlora</div>
+        <div class="brand-tag">Admin · Multi-Rooftop Supervision</div>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a class="nav-link" href="../user/dashboard.html">User</a>
+      <a class="nav-link" href="../owner/payments.html">Owner</a>
+      <a class="nav-link" href="../installer/setup-wizard.html">Installer</a>
+      <button class="btn btn-primary" id="createTicket">Create ticket</button>
+    </nav>
+  </header>
+
+  <main class="container admin">
+    <div class="admin-head">
+      <div>
+        <h1>Rooftops</h1>
+        <p class="muted">NOC view: health status, CO₂ alerts, water/energy anomalies.</p>
+      </div>
+
+      <div class="filters glass">
+        <input class="input" id="q" placeholder="Search: Casa, Rabat, R1..." />
+        <select class="input" id="status">
+          <option value="all">All statuses</option>
+          <option value="good">Good</option>
+          <option value="warn">Warning</option>
+          <option value="bad">Critical</option>
+        </select>
+        <button class="btn btn-ghost" id="reset">Reset</button>
+      </div>
+    </div>
+
+    <section class="grid-2">
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Fleet summary</h2>
+          <div class="muted small" id="fleetHint">Live (simulated)</div>
+        </div>
+        <div class="fleet-kpis">
+          <div class="fleet-kpi">
+            <div class="k">Online</div>
+            <div class="v" id="kOnline">—</div>
+          </div>
+          <div class="fleet-kpi">
+            <div class="k">Warnings</div>
+            <div class="v warn" id="kWarn">—</div>
+          </div>
+          <div class="fleet-kpi">
+            <div class="k">Critical</div>
+            <div class="v bad" id="kBad">—</div>
+          </div>
+          <div class="fleet-kpi">
+            <div class="k">Tickets</div>
+            <div class="v" id="kTickets">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Hot alerts</h2>
+          <div class="muted small">Sorted by severity</div>
+        </div>
+        <div id="hotAlerts" class="hot-alerts"></div>
+      </div>
+    </section>
+
+    <section class="card glass">
+      <div class="card-head">
+        <h2>Rooftop list</h2>
+        <div class="muted small">Click a row for details (modal).</div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Rooftop</th>
+              <th>City</th>
+              <th>Status</th>
+              <th>CO₂</th>
+              <th>Water</th>
+              <th>Battery</th>
+              <th>Last ping</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+  <div class="modal glass" id="modal" hidden role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">Rooftop details</div>
+      <button class="icon-btn" id="modalClose" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+
+  <div id="toastHost" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/ui/toast.js"></script>
+  <script src="../../assets/js/data/mockRooftops.js"></script>
+  <script src="../../assets/js/pages/admin.js"></script>
+</body>
+</html>

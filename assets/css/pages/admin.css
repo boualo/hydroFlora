@@ -1,0 +1,27 @@
+.admin{padding:26px 0 50px}
+.admin-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-top:18px}
+.admin-head h1{font-size:2rem}
+.filters{border-radius:22px; padding:12px; display:flex; gap:10px; align-items:center; min-width:380px}
+.table-wrap{overflow:auto; border-radius:22px; border:1px solid rgba(255,255,255,.10)}
+.table{width:100%; border-collapse:collapse; min-width:760px}
+.table th,.table td{padding:12px 12px; text-align:left; border-bottom:1px solid rgba(255,255,255,.08)}
+.table th{color:rgba(255,255,255,.78); font-size:.86rem}
+.row-badge{padding:6px 10px; border-radius:999px; font-weight:900; font-size:.78rem; border:1px solid rgba(255,255,255,.14)}
+.row-badge.good{color:rgba(45,255,176,.95); border-color: rgba(45,255,176,.22)}
+.row-badge.warn{color:rgba(255,211,107,.95); border-color: rgba(255,211,107,.22)}
+.row-badge.bad{color:rgba(255,84,112,.95); border-color: rgba(255,84,112,.22)}
+.fleet-kpis{display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-top:10px}
+.fleet-kpi{border-radius:18px; padding:12px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18)}
+.fleet-kpi .k{color:var(--muted); font-weight:800; font-size:.86rem}
+.fleet-kpi .v{font-weight:950; font-size:1.2rem; margin-top:6px}
+.v.warn{color:rgba(255,211,107,.95)}
+.v.bad{color:rgba(255,84,112,.95)}
+.hot-alerts{display:flex; flex-direction:column; gap:10px; margin-top:10px}
+.hot{
+  border-radius:18px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+}
+.hot .t{font-weight:900}
+.hot .m{color:var(--muted); margin-top:4px}

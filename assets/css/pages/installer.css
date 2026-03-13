@@ -1,0 +1,39 @@
+.installer{padding:26px 0 60px}
+.wizard{
+  margin-top:18px;
+  border-radius: 30px;
+  padding:18px;
+  display:grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap:14px;
+}
+.wizard-left h1{font-size:2rem}
+.steps{display:flex; flex-direction:column; gap:10px; margin-top:12px}
+.step{
+  border-radius:18px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  display:flex; gap:10px; align-items:center; justify-content:space-between;
+}
+.step .l{display:flex; gap:10px; align-items:center}
+.step .n{
+  width:30px; height:30px; border-radius:12px;
+  display:grid; place-items:center;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  font-weight:950;
+}
+.step.active{border-color: rgba(109,252,255,.22); box-shadow: 0 0 0 4px rgba(109,252,255,.06)}
+.step.done .n{background: rgba(45,255,176,.16); border-color: rgba(45,255,176,.22)}
+.step .t{font-weight:900}
+.step .s{color:var(--muted); font-size:.92rem}
+
+.panel{border-radius:26px; padding:16px; min-height:360px}
+.panel h2{font-size:1.25rem}
+.panel p{color:var(--muted)}
+.wizard-actions{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+
+@media (max-width: 980px){
+  .wizard{grid-template-columns:1fr}
+}

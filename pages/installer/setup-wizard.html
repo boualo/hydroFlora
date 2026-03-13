@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroFlora — Installer Wizard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/pages/installer.css" />
+</head>
+
+<body data-page="installer">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="topbar glass">
+    <a class="brand" href="../../index.html">
+      <div class="logo-mark">HF</div>
+      <div class="brand-txt">
+        <div class="brand-name">HydroFlora</div>
+        <div class="brand-tag">Installer Mode · Setup & Calibration</div>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a class="nav-link" href="../user/dashboard.html">User</a>
+      <a class="nav-link" href="../admin/rooftops.html">Admin</a>
+      <a class="nav-link" href="../owner/payments.html">Owner</a>
+      <button class="btn btn-primary" id="finishBtn">Finish</button>
+    </nav>
+  </header>
+
+  <main class="container installer">
+    <div class="wizard glass">
+      <div class="wizard-left">
+        <h1>Setup Wizard</h1>
+        <p class="muted">Connect sensors, calibrate pH/EC, test actuators, validate greenhouse shield.</p>
+
+        <div class="steps" id="steps"></div>
+
+        <div class="wizard-actions">
+          <button class="btn btn-ghost" id="prevBtn">Back</button>
+          <button class="btn btn-primary" id="nextBtn">Next</button>
+        </div>
+      </div>
+
+      <div class="wizard-right">
+        <div class="panel glass" id="panel"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastHost" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/ui/toast.js"></script>
+  <script src="../../assets/js/pages/installer.js"></script>
+</body>
+</html>

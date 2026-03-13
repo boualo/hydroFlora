@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroFlora — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/pages/auth.css" />
+</head>
+<body data-page="login">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="topbar glass">
+    <a class="brand" href="../../index.html">
+      <div class="logo-mark">HF</div>
+      <div class="brand-txt">
+        <div class="brand-name">HydroFlora</div>
+        <div class="brand-tag">Secure access</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a class="nav-link" href="../../index.html#dash">Back to demo</a>
+      <a class="btn btn-ghost" href="../user/dashboard.html">Skip (Prototype)</a>
+    </nav>
+  </header>
+
+  <main class="container auth-wrap">
+    <section class="auth-card glass">
+      <div class="auth-head">
+        <h1>Sign in</h1>
+        <p class="muted">Prototype only — any email/password works.</p>
+      </div>
+
+      <form id="loginForm" class="form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" placeholder="you@hydroflora.io" required />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input type="password" name="password" placeholder="••••••••" required />
+        </label>
+
+        <div class="row">
+          <label class="check">
+            <input type="checkbox" checked />
+            <span>Remember me</span>
+          </label>
+          <a class="link" href="#" onclick="return false;">Forgot?</a>
+        </div>
+
+        <button class="btn btn-primary btn-lg" type="submit">Enter HydroFlora</button>
+
+        <div class="quick-links">
+          <a class="btn btn-soft" href="../user/dashboard.html">User</a>
+          <a class="btn btn-soft" href="../admin/rooftops.html">Admin</a>
+          <a class="btn btn-soft" href="../owner/payments.html">Owner</a>
+          <a class="btn btn-soft" href="../installer/setup-wizard.html">Installer</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="toastHost" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/ui/toast.js"></script>
+  <script>
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      window.HF.toast("Welcome back — redirecting to dashboard…", "good");
+      setTimeout(() => location.href = "../user/dashboard.html", 650);
+    });
+  </script>
+</body>
+</html>

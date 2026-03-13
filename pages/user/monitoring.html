@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroFlora — Monitoring</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css" />
+
+  <!-- Chart.js (choose ONE) -->
+  <script defer src="../../vendor/chart.umd.min.js"></script>
+  <!-- CDN fallback:
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  -->
+</head>
+
+<body data-page="monitoring">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <aside class="side glass">
+    <a class="side-brand" href="../../index.html">
+      <img class="app-logo" src="../../img/logo2.png" alt="HydroFlora logo" />
+      <div>
+        <div class="brand-name">HydroFlora</div>
+        <div class="muted small">Monitoring</div>
+      </div>
+    </a>
+
+    <nav class="side-nav">
+      <a class="side-link" href="dashboard.html">Dashboard</a>
+      <a class="side-link active" href="monitoring.html">Monitoring</a>
+      <a class="side-link" href="../admin/rooftops.html">Admin</a>
+      <a class="side-link" href="../owner/payments.html">Owner</a>
+      <a class="side-link" href="../installer/setup-wizard.html">Installer</a>
+      <a class="side-link" href="../auth/login.html">Logout</a>
+    </nav>
+
+    <div class="side-card glass">
+      <div class="k">Live Stream</div>
+      <div class="v">Sensors · Actuators</div>
+      <div class="pill mini-pill"><span class="dot dot-good"></span> Web UI Connected</div>
+      <div class="hr"></div>
+      <div class="muted small">Use toggles to simulate actuators.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Monitoring</h1>
+        <p class="muted">Deep view: environment, nutrients, energy, and greenhouse shield.</p>
+      </div>
+      <div class="head-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+          <span class="icon">☾</span>
+        </button>
+        <button class="btn btn-ghost" id="toggleShield">Toggle Shield</button>
+        <button class="btn btn-primary" id="exportBtn">Export snapshot</button>
+      </div>
+    </header>
+
+    <section class="grid-2">
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Environmental</h2>
+          <div class="muted small" id="envState">Stable</div>
+        </div>
+        <canvas id="envChart" height="140"></canvas>
+      </div>
+
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Nutrients & Water</h2>
+          <div class="muted small">pH / EC / Level</div>
+        </div>
+        <canvas id="nutriChart" height="140"></canvas>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Energy Flow</h2>
+          <div class="muted small" id="energyState">Hybrid unit running</div>
+        </div>
+        <div class="energy-grid">
+          <div class="energy-box glass">
+            <div class="k">Solar</div>
+            <div class="v" id="solarVal">62%</div>
+          </div>
+          <div class="energy-box glass">
+            <div class="k">Wind</div>
+            <div class="v" id="windVal">38%</div>
+          </div>
+          <div class="energy-box glass">
+            <div class="k">Battery</div>
+            <div class="v" id="batVal">82%</div>
+          </div>
+          <div class="energy-box glass">
+            <div class="k">Load</div>
+            <div class="v" id="loadVal">Normal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Actuators</h2>
+          <div class="muted small">Pump / Valve / Cover / Dosing</div>
+        </div>
+        <div class="act-grid" id="actGrid"></div>
+      </div>
+    </section>
+
+    <footer class="page-foot muted small">
+      Prototype UI · Static frontend · Export is a demo toast.
+    </footer>
+  </main>
+
+  <div id="toastHost" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/ui/cursorFX.js"></script>
+  <script src="../../assets/js/ui/toast.js"></script>
+  <script src="../../assets/js/ui/charts.js"></script>
+  <script src="../../assets/js/data/mockSensors.js"></script>
+  <script src="../../assets/js/pages/monitoring.js"></script>
+</body>
+</html>

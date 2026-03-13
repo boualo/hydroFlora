@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroFlora — User Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css" />
+
+  <!-- Chart.js (choose ONE) -->
+
+  <!-- CDN fallback:-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+</head>
+
+<body data-page="user-dashboard">
+   <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <aside class="side glass">
+    <a class="side-brand" href="../../index.html">
+      <img class="app-logo" src="../../img/logo2.png" alt="HydroFlora logo" />
+      <div>
+        <div class="brand-name">HydroFlora</div>
+        <div class="muted small">Monitoring</div>
+      </div>
+    </a>
+
+    <nav class="side-nav">
+      <a class="side-link" href="dashboard.html">Dashboard</a>
+      <a class="side-link active" href="monitoring.html">Monitoring</a>
+      <a class="side-link" href="../admin/rooftops.html">Admin</a>
+      <a class="side-link" href="../owner/payments.html">Owner</a>
+      <a class="side-link" href="../installer/setup-wizard.html">Installer</a>
+      <a class="side-link" href="../auth/login.html">Logout</a>
+    </nav>
+
+   
+  </aside>
+
+   
+  
+
+  <main class="main">
+    <header class="page-head">
+      <div>
+        <h1>Dashboard</h1>
+        
+      </div>
+
+      <div class="head-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+          <span class="icon">☾</span>
+        </button>
+        <button class="btn btn-ghost" id="simulateSpike">Simulate CO₂ spike</button>
+        <button class="btn btn-primary" id="openQuickActions">Quick actions</button>
+      </div>
+    </header>
+
+    <h3 class="section-title">Plant Environment</h3>
+    <section class="grid-kpi">
+      
+
+      
+      <div class="kpi glass" data-open="ph">
+        <div class="kpi-top">
+          <div class="kpi-title">pH</div>
+          <div class="badge good" id="phBadge">Optimal</div>
+        </div>
+
+        
+        <div class="kpi-val" id="phVal">6.1</div>
+        <div class="kpi-sub muted">Target 5.8–6.3</div>
+      </div>
+
+      
+
+      <div class="kpi glass" data-open="ec">
+        <div class="kpi-top">
+          <div class="kpi-title">EC</div>
+          <div class="badge good" id="ecBadge">Stable</div>
+        </div>
+        <div class="kpi-val"><span id="ecVal">1.9</span> <span class="unit">mS/cm</span></div>
+        <div class="kpi-sub muted">Nutrient conductivity</div>
+      </div>
+
+      <div class="kpi glass" data-open="co2">
+        <div class="kpi-top">
+          <div class="kpi-title">CO₂</div>
+          <div class="badge warn" id="co2Badge">Monitoring</div>
+        </div>
+        <div class="kpi-val"><span id="co2Val">425</span> <span class="unit">ppm</span></div>
+        <div class="kpi-sub muted">Auto greenhouse shield</div>
+      </div>
+
+      <div class="kpi glass" data-open="water">
+        <div class="kpi-top">
+          <div class="kpi-title">Water Level</div>
+          <div class="badge good" id="wBadge">OK</div>
+        </div>
+        <div class="kpi-val"><span id="wVal">68</span><span class="unit">%</span></div>
+        <div class="kpi-sub muted">Closed-loop reservoir</div>
+      </div>
+
+
+      <div class="kpi glass">
+        <div class="kpi-top">
+          <div class="kpi-title">Model prediction</div>
+          <div class="badge good">Forecast</div>
+        </div>
+
+        <div class="kpi-val" id="model_response"></div>
+
+        <div class="kpi-sub muted">AI growth prediction</div>
+      </div>
+    </section>
+
+    <h3 class="section-title">Sensor  Status</h3>
+    <section class="grid-kpi">
+
+
+
+<div class="kpi glass kpi-medium">
+  <div class="kpi-title">Temperature Sensor</div>
+  <div class="kpi-val" id="tempStatus">OK</div>
+  <div class="kpi-sub muted" id="tempMsg">Device operating normally</div>
+</div>
+
+<div class="kpi glass kpi-medium">
+  <div class="kpi-title">pH Sensor</div>
+  <div class="kpi-val" id="phStatus">OK</div>
+  <div class="kpi-sub muted" id="phMsg">Device operating normally</div>
+</div>
+
+<div class="kpi glass kpi-medium">
+  <div class="kpi-title">EC Sensor</div>
+  <div class="kpi-val" id="ecStatus">OK</div>
+  <div class="kpi-sub muted" id="ecMsg">Device operating normally</div>
+</div>
+
+<div class="kpi glass kpi-medium">
+  <div class="kpi-title">CO₂ Sensor</div>
+  <div class="kpi-val" id="co2Status">OK</div>
+  <div class="kpi-sub muted" id="co2Msg">Device operating normally</div>
+</div>
+<div class="kpi glass kpi-medium">
+  <div class="kpi-title">NPK Sensor</div>
+  <div class="kpi-val" id="npkStatus">OK</div>
+  <div class="kpi-sub muted" id="npkMsg">Device operating normally</div>
+</div>
+
+</section>
+
+
+
+<h3 class="section-title">Sustainability Impact</h3>
+
+<section class="grid-kpi">
+
+
+<div class="kpi glass">
+<div class="kpi-title">Energy</div>
+<div class="kpi-val">82%</div>
+<div class="kpi-sub muted">Solar • Wind • Battery</div>
+
+
+</div>
+
+
+<div class="kpi glass">
+<div class="kpi-title">Oxygenation</div>
+<div class="kpi-val">Active</div>
+<div class="kpi-sub muted">Waterfall effect</div>
+</div>
+
+
+
+
+<div class="kpi glass">
+<div class="kpi-title">Water Saved</div>
+<div class="kpi-val" id="waterSaved">42 L</div>
+<div class="impact-l muted">Water saved today</div>
+</div>
+
+
+<div class="kpi glass">
+<div class="kpi-title">CO₂ Avoided</div>
+<div class="kpi-val" id="co2Avoided">1.8 kg</div>
+<div class="kpi-sub muted">Estimated</div>
+</div>
+
+
+
+
+</section>
+
+    <section class="grid-2">
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Live trends</h2>
+          
+        </div>
+        
+        <div class="chart-box">
+          <canvas id="trendChart"></canvas>
+      </div>
+        
+      </div>
+
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Smart recommendations</h2>
+          <div class="muted small">Context-aware suggestions</div>
+        </div>
+
+        <div class="reco" id="recoList"></div>
+         
+
+           
+
+        <div class="hr"></div>
+        <div class="impact">
+          
+          <div class="impact-item">
+            <div class="impact-k" id="nextHarvest">6 days</div>
+            <div class="impact-l muted">Next harvest</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  
+
+    
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+  <div class="modal glass" id="modal" hidden role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">Quick actions</div>
+      <button class="icon-btn" id="modalClose" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+
+  <div id="toastHost" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/ui/cursorFX.js"></script>
+  <script src="../../assets/js/ui/toast.js"></script>
+  <script src="../../assets/js/ui/charts.js"></script>
+  <script src="../../assets/js/data/mockSensors.js"></script>
+  <script src="../../assets/js/pages/dashboard.js"></script>
+</body>
+</html>
+
+

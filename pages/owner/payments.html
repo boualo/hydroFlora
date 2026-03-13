@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HydroFlora — Rooftop Owner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/pages/owner.css" />
+</head>
+
+<body data-page="owner">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="topbar glass">
+    <a class="brand" href="../../index.html">
+      <div class="logo-mark">HF</div>
+      <div class="brand-txt">
+        <div class="brand-name">HydroFlora</div>
+        <div class="brand-tag">Owner Space · Circular Economy</div>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a class="nav-link" href="../user/dashboard.html">User</a>
+      <a class="nav-link" href="../admin/rooftops.html">Admin</a>
+      <a class="nav-link" href="../installer/setup-wizard.html">Installer</a>
+      <a class="btn btn-primary" href="#">Download invoice</a>
+    </nav>
+  </header>
+
+  <main class="container owner">
+    <div class="owner-head">
+      <div>
+        <h1>Payments & Impact</h1>
+        <p class="muted">Transparent monthly payout for rooftop usage + sustainability metrics.</p>
+      </div>
+      <div class="owner-pill glass">
+        Contract: <strong>Active</strong> · Surface: <strong>120 m²</strong> · Rooftop: <strong>Casa-R1</strong>
+      </div>
+    </div>
+
+    <section class="grid-3">
+      <div class="card glass">
+        <div class="k">Next payout</div>
+        <div class="v" id="nextPayout"> 300 MAD</div>
+        <div class="muted small">Scheduled in 3 days</div>
+      </div>
+      <div class="card glass">
+        <div class="k">Total earned (YTD)</div>
+        <div class="v" id="earned"> 2,560 MAD</div>
+        <div class="muted small">Automated monthly payments</div>
+      </div>
+      <div class="card glass">
+        <div class="k">Impact score</div>
+        <div class="v" id="impact">A+</div>
+        <div class="muted small">Water saving + green coverage</div>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Payment history</h2>
+          <div class="muted small">Click to view details</div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Invoice</th>
+              </tr>
+            </thead>
+            <tbody id="payRows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card glass">
+        <div class="card-head">
+          <h2>Sustainability impact</h2>
+          <div class="muted small">Estimated metrics</div>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-box glass">
+            <div class="k">Water saved</div>
+            <div class="v" id="waterImpact">—</div>
+            <div class="muted small">vs. traditional farming</div>
+          </div>
+          <div class="impact-box glass">
+            <div class="k">Green area</div>
+            <div class="v" id="greenArea">—</div>
+            <div class="muted small">rooftop coverage</div>
+          </div>
+          <div class="impact-box glass">
+            <div class="k">Food produced</div>
+            <div class="v" id="foodProduced">—</div>
+            <div class="muted small">herbs & vegetables</div>
+          </div>
+          <div class="impact-box glass">
+            <div class="k">CO₂ avoided</div>
+            <div class="v" id="co2Impact">—</div>
+            <div class="muted small">estimated</div>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+        <button class="btn btn-soft" id="requestAccess">Request rooftop access schedule</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastHost" class="toast-host" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/ui/toast.js"></script>
+  <script src="../../assets/js/data/mockPayments.js"></script>
+  <script src="../../assets/js/pages/owner.js"></script>
+</body>
+</html>

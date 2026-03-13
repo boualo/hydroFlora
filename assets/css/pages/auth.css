@@ -1,0 +1,19 @@
+.auth-wrap{padding:44px 0 60px; display:grid; place-items:center}
+.auth-card{width:min(520px, 100%); border-radius:28px; padding:20px}
+.auth-head h1{font-size:1.8rem}
+.form{display:flex; flex-direction:column; gap:12px; margin-top:10px}
+.field{display:flex; flex-direction:column; gap:8px}
+.field span{font-weight:800; font-size:.92rem; color:rgba(255,255,255,.84)}
+.field input{
+  padding:12px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.25);
+  color:var(--txt);
+  outline:none;
+}
+.row{display:flex; align-items:center; justify-content:space-between}
+.check{display:flex; gap:10px; align-items:center; color:var(--muted)}
+.link{color:rgba(109,252,255,.9); font-weight:800}
+.link:hover{text-decoration:underline}
+.quick-links{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
